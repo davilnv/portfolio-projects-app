@@ -14,7 +14,10 @@
     </head>
     <body>
         <%@ include file="common/navigation.jspf" %>
-
+        <div class="container row d-flex justify-content-center">
+            <h1>Gerenciador de Portfólio de Projetos</h1>
+            <h5>Este sistema consiste em gerenciar o portfólio de projetos de uma empresa!</h5>
+        </div>
     </body>
 
     <script src="<c:url value="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"/>"></script>

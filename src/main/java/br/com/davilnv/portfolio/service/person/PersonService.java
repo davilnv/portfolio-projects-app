@@ -13,7 +13,7 @@ public interface PersonService {
     PersonModel savePerson(PersonModel person);
     List<PersonModel> findAll();
 
-    Optional<PersonModel> getPersonById(Long id) throws PersonNotFoundException;
+    PersonModel getPersonById(Long id) throws PersonNotFoundException;
 
     List<PersonModel> findAllByEmployeeFalse();
 

@@ -30,12 +30,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Optional<PersonModel> getPersonById(Long id) throws PersonNotFoundException {
+    public PersonModel getPersonById(Long id) throws PersonNotFoundException {
         Optional<PersonModel> person = repository.findById(id);
         if (person.isEmpty()) {
             throw new PersonNotFoundException("Pessoa não encontrada");
         }
-        return person;
+        return person.get();
     }
 
     @Override
