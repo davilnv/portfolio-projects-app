@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,14 +27,18 @@ public class ProjectModel {
     private String name;
 
     @Column(name = "data_inicio")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date initialDate;
 
-    @Column(name = "data_previsao")
+    @Column(name = "data_previsao_fim")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date forecastDate;
 
     @Column(name = "data_fim")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date finalDate;
 
     @Column(name = "descricao", length = 5000)
@@ -50,7 +55,7 @@ public class ProjectModel {
 
     @ManyToOne
     @JoinColumn(name = "idgerente")
-    private PersonModel idManager;
+    private PersonModel manager;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -59,4 +64,5 @@ public class ProjectModel {
             inverseJoinColumns = @JoinColumn(name = "idpessoa", referencedColumnName = "id")
     )
     private List<PersonModel> members = new ArrayList<>();
+
 }

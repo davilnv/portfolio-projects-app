@@ -10,9 +10,9 @@ import java.util.Optional;
 @Service
 public interface ProjectService {
 
-    public void saveProject(ProjectModel project);
-    public List<ProjectModel> findAll();
+    ProjectModel saveProject(ProjectModel project);
+    List<ProjectModel> findAll();
 
-    public Optional<ProjectModel> getProjectById(Long id) throws ProjectNotFoundException;
+    Optional<ProjectModel> getProjectById(Long id) throws ProjectNotFoundException;
 
 }
