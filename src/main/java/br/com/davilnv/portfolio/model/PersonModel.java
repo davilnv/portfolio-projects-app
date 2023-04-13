@@ -1,5 +1,6 @@
 package br.com.davilnv.portfolio.model;
 
+import br.com.davilnv.portfolio.dto.person.PersonRegisterDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,5 +33,12 @@ public class PersonModel {
 
     @Column(name = "funcionario")
     private boolean employee;
+
+    public PersonModel(PersonRegisterDto personRegisterDto) {
+        this.name = personRegisterDto.getName();
+        this.birthDate = personRegisterDto.getBirthDate();
+        this.cpf = personRegisterDto.getCpf();
+        this.employee = personRegisterDto.isEmployee();
+    }
 
 }

@@ -13,6 +13,8 @@ public interface ProjectService {
     ProjectModel saveProject(ProjectModel project);
     List<ProjectModel> findAll();
 
-    Optional<ProjectModel> getProjectById(Long id) throws ProjectNotFoundException;
+    ProjectModel getProjectById(Long id) throws ProjectNotFoundException;
+
+    void deleteProjectById(Long id);
 
 }

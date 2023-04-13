@@ -30,11 +30,16 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
-    public Optional<ProjectModel> getProjectById(Long id) throws ProjectNotFoundException {
+    public ProjectModel getProjectById(Long id) throws ProjectNotFoundException {
         Optional<ProjectModel> project = repository.findById(id);
         if (project.isEmpty()) {
             throw new ProjectNotFoundException("Projeto não encontrado");
         }
-        return project;
+        return project.get();
+    }
+
+    @Override
+    public void deleteProjectById(Long id) {
+        repository.deleteById(id);
     }
 }
